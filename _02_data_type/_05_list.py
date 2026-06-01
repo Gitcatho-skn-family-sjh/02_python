@@ -74,7 +74,7 @@ print(len(students)) # 3(행)
 print(len(students[0])) # 2 (열)
 print(len(students[0][0])) # 3(홍길동 글자 수)
 
-# str.slit(구분자)
+# str.split(구분자)
 # - str을 구분자를 기준으로 나눠서 list 형태로 반환
 data = "홍길동,20,서울시,서초구"
 data_ = data.split(',')
@@ -129,3 +129,68 @@ for v in lst:
 # list 인덱스, 요소 순회
 for index, v in enumerate(lst):
     print(f'lst[{index}]: {v}')
+
+#  list.count(값): list 내에 같은 값이 몇개 있는가?
+print("--- list.count(값) ---")
+fruits = ["apple", "banana", "cherry", "apple", "melon"]
+
+print("fruits.count('apple'): ",fruits.count("apple"))
+print("fruits.index('banana'): ",fruits.index('banana'))
+# print("fruits.index('kiwi'): ",fruits.index('kiwi'))
+
+# sort : 정렬하다
+# list.sort() : 원본 리스트 내에서 정렬(in-place)
+# -> 원본 데이터가 변경(원본 데이터 손실)
+
+# sorted(list) : 정렬된 새 리스트 반환(not-in-place)
+# -> 원본 데이터가 별도로 유지
+
+print("--- list.sort() : 원본 변경 ---")
+nums = [100, 30, 50, 20, 70]
+print("nums: ", nums)
+
+nums.sort()
+print("nums: ", nums)
+
+nums.sort(reverse=True)
+print("nums: ", nums)
+
+#key 속성 -> 정렬 기준 함수
+print("--- key 속성 -> 정렬 기준 함수 ---")
+fruits.append("kiwi")
+print("fruits:", fruits)
+
+#len 함수를 정렬 기준으로 설정
+fruits.sort(key=len)
+print("fruits:", fruits)
+
+
+# 커스텀 정렬기준함수
+def my_sort(elem):
+    return len(elem), elem # tuple로 우선순위 지정
+
+fruits.sort(key=my_sort)
+print(fruits)
+
+# sorted() : 원본 유지 정렬 (새 list 반환)
+print("--- sorted(list) ---")
+nums = [9,2,4,7,1]
+nums2 = sorted(nums)
+print("num: ", nums)
+print("nums2: ", nums2)
+
+# list unpacking
+# - list == 변수의 묶음
+print("--- list unpacking ---")
+numbers = [10,20,30]
+a,b,c = numbers
+print(a, b, c)
+
+# d = 0번 인덱스 요소(10)
+# *e = 1,2 인덱스 요소 [20,30]
+d, *e = numbers
+print(d, *e);
+
+numbers = [10,20,30,40,50]
+a, *b, c = numbers
+print(a, b, c)
