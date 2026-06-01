@@ -85,4 +85,68 @@ print('{} + {} + {}'.format(x,y,x+y))
 print("--- f-string ---")
 print(f"{x} + {y} + {x+y}")
 
-# 4. 
+#--------------------------------------------------
+# 문자열 인덱싱/슬라이싱
+# - 파이썬 문자열(str)은 text sequence 형태로 갖는다
+# - sequence: 순차적인, 순서가 있는 데이터 구조
+# - index: 순서 (base-index == 0)
+# - 마지막 index == str길이 -1
+
+print("--- 문자열 indexing ---")
+x = ('Monday')
+print('x의 길이: ',len(x))
+print(x[0]) # [] == 배열, [0] == str 배열 중 0번째 index
+print(x[1])
+print(x[2])
+print(x[3])
+print(x[4])
+print(x[5])
+# print(x[6]) # 초과, IndexError: string index out of range
+
+# 역 인덱스: str을 거꾸로 탐색
+print(x[-1], x[-2], x[-3], x[-4], x[-5], x[-6])
+
+# str 슬라이싱: 문자열 일부를 잘라서 가져오는 방법
+# 작성법: str[start:stop:step]
+# - start: 시작 인덱스
+# - stop: 종료 인덱스(미포함)
+# - step: 건너 뛸 개수 (생략시 기본값 1)
+print("--- str slicing ---")
+
+text = 'hello world'
+print("text: ",text)
+print("len(text):", len(text))
+
+print("text[0:5:1]:", text[0:5:1]) # hello
+print("text[0:5]:", text[0:5]) # hello
+print("text[:5]:", text[:5]) # hello
+
+print("text[6:11]:", text[6:11]) # world
+print("text[6:len(text):]:", text[6:len(text)]) # world
+print("text[6:]:", text[6:]) # world
+print("text[:]:", text[:]) # 0 ~ 끝까지
+
+print("text[0:11:2]:", text[0:11:2]) # 0, 2, 4, 8, 10
+print("text[::2]:", text[::2]) # 0, 2, 4, 8, 10
+
+print("text[::-1]:", text[::-1]) # 순서를 반대로
+
+# 문자열 불변타입(immutable)
+# - str 은 한번 메모리에 값이 저장되면 수정할 수 없다.
+# id(변수명): 변수에 저장된 값의 주소(위치)
+print('--- 문자열 불변 타입 ---')
+s = 'python'
+print("s: ", s)
+print("변경 전 s: ", id(s))
+
+s = s + " hello"
+print("s: ", s)
+print("변경 후 s: ", id(s))
+
+# in 연산자
+# - 특ㅈ정 값이 포함되어 있는지 검사
+# - 결과는 bool 형태
+print("--- in 연산자 ---")
+txt = "김밥, 라면, 어묵, 떡볶이"
+print('라면' in txt)
+print('돈까스' in txt)
